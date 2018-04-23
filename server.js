@@ -19,10 +19,14 @@ app.use(express.static("public"));
 
 //db configuration
 
-// mongoose.connect("mongodb://123:123@ds119380.mlab.com:19380/heroku_8n8jg9gb");
+
 // var db = mongoose.connection;
 
-mongoose.connect("mongodb://localhost/mongonews");
+if (process.env.MONGODB_URI) {
+  mongoose.connect("mongodb://heroku_r0d2fq1c:ruel3vp7gqoqh2g3spvd14k7mr@ds229648.mlab.com:29648/heroku_r0d2fq1c");
+} else {
+	mongoose.connect("mongodb://localhost/mongonews");
+}
 
 // Routes
 
